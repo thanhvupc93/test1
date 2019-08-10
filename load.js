@@ -7,6 +7,7 @@ let text = "key1=value1;key2=value2\nkeyA=valueA\n";
 const load = (data = '') => {
     try {
         if (data != null) {
+            //check format data
             if (isString(data)) {
                 let result = [];
                 let arrData = data.split('\n');
@@ -16,11 +17,12 @@ const load = (data = '') => {
                         let objectPutArr = {};
                         _.forEach(arrObject, (iObject) => {
                             let object = iObject.split('=');
+                            //check format data object
                             if (object.length > 1) {
                                 if (object[0] != '' && object[1] != '') {
                                     objectPutArr[object[0]] = object[1];
                                 }
-                            }
+                            }else throw 'error : format data object';
                         });
                         result.push(objectPutArr);
                     });
@@ -31,8 +33,6 @@ const load = (data = '') => {
     } catch (error) {
         return error;
     }
-
-
 }
 
 function isString(value) {

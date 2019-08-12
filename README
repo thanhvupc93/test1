@@ -1,8 +1,0 @@
-## run in terminal
-## run function load out put array  from variable text:
-
-node load.js
-
-## run function store out put text  from variable array:
-
-node store.js

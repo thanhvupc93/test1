@@ -1,12 +1,6 @@
 const _ = require('lodash');
 
-let arr = [{key1: 'value1', key2: 'value2'}, {keyA: 'valueA'}];
-
-// let arr = [ [{ key1: 'value1', key2: 'value2' }], { keyA: 'valueA' } ];
-
-// let arr = { key1: 'value1', key2: 'value2' };
-
-const store = (data = []) => {
+export const store = (data = []) => {
     try {
         let result = '';
         _.forEach(data, (value) => {
@@ -32,5 +26,3 @@ const store = (data = []) => {
 function isObject(value) {
     return value && typeof value === 'object' && value.constructor === Object;
 }
-
-console.log(store(arr));

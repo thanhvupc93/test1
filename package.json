@@ -1,5 +1,5 @@
 {
-  "name": "pyco",
+  "name": "test1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,9 +14,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thanhvupc93/pyco/issues"
+    "url": "https://github.com/thanhvupc93/test1/issues"
   },
-  "homepage": "https://github.com/thanhvupc93/pyco#readme",
+  "homepage": "https://github.com/thanhvupc93/test1#readme",
   "dependencies": {
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",

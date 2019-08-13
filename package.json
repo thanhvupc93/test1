@@ -18,15 +18,7 @@
   },
   "homepage": "https://github.com/thanhvupc93/test1#readme",
   "dependencies": {
-    "chai": "^3.5.0",
-    "chai-http": "^2.0.1",
-    "mocha": "^2.4.5",
-    "nyc": "^14.1.1",
-    "nodemon": "^1.18.2",
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^10.0.2",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0"
+    "babel-preset-env": "^1.7.0"
   },
   "nyc": {
     "reporter": [
@@ -50,5 +42,16 @@
         }
       ]
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.0.2",
+    "babel-register": "^6.26.0",
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.19.1",
+    "nyc": "^14.1.1"
   }
 }

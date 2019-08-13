@@ -1,6 +1,6 @@
 const assert = require('assert');
-import { store } from '../src/question1/store';
 import { load } from '../src/question1/load';
+import { store } from '../src/question1/store';
 
 const data = [ {key1: 'value1',key2: 'value2'}, {keyA: 'valueA'}];
 const dataError = [ [{key1: 'value1',key2: 'value2'}], {keyA: 'valueA'}];
@@ -10,37 +10,37 @@ const dataStringErrObject = 'key1=value1;key2=value2\nkeyA\n';
 const errMessage = 'error : format data';
 const errObjectMessage ='error : format data object'
 
-describe('Do store data', () => {
+describe('Do load data', () => {
     it('should return string text successfully', () => {
-        const text = store(data);
+        const text = load(data);
         assert.equal(dataString, text);
     });
 });
 
-describe('Do store data format data error', () => {
+describe('Do load data format data error', () => {
     it('should return string text error : format data', () => {
-        const text = store(dataError);
+        const text = load(dataError);
         assert.equal(errMessage, text);
     });
 });
 
-describe('Do load data', () => {
+describe('Do store data', () => {
     it('should return object successfully', () => {
-        const arrObjs = load(dataString);
+        const arrObjs = store(dataString);
         assert.deepEqual(data, arrObjs);
     });
 });
 
-describe('Do load data format data error', () => {
+describe('Do store data format data error', () => {
     it('should return error : format data', () => {
-        const arrObjs = load(data);
+        const arrObjs = store(data);
         assert.deepEqual(errMessage, arrObjs);
     });
 });
 
-describe('Do load data error format data object', () => {
+describe('Do store data error format data object', () => {
     it('should return error : format data object', () => {
-        const arrObjs = load(dataStringErrObject);
+        const arrObjs = store(dataStringErrObject);
         assert.deepEqual(errObjectMessage, arrObjs);
     });
 });

@@ -30,6 +30,9 @@ const getdiscountPrice = (user, totalPrice) => {
                 case 'affiliate':
                     discountPrice = totalPrice * 0.1;
                     break;
+                case 'groceries':
+                    discountPrice = 0;
+                    break;
                 default:
                     // check two year
                     if (new Date().getTime() - new Date(user.type.createAt).getTime() > 63115200000) {

@@ -9,6 +9,7 @@ const userTypeEmployee = new UserType(1, 'employee', new Date().getTime());
 const userTypeAffiliate = new UserType(2, 'affiliate', new Date().getTime());
 const userType2year = new UserType(3, '', new Date('2016-03-01'));
 const userTypeMore100 = new UserType(4, '', new Date().getTime());
+const userTypeGrocerys = new UserType(5, 'groceries', new Date().getTime());
 const banana = new Product(1, 'banana', 70, new Date().getTime());
 const apple = new Product(2, 'apple', 350, new Date().getTime());
 const orange = new Product(3, 'orange', 455, new Date().getTime());
@@ -71,6 +72,22 @@ describe('Do createdBill more 100$ successfully', () => {
                 totalPrice: 805,
                 discountPrice: 40,
                 totalMoney: 765 }
+
+        );
+    });
+});
+
+describe('Do createdBill grocerys successfully', () => {
+    it('should return created order grocerys successfully', () => {
+        const user = new User(1, "Adam", userTypeGrocerys, new Date().getTime());
+        const products1 = [apple, orange];
+        const orderInfo = createdBill(user, products1);
+        assert.deepStrictEqual(
+            orderInfo,{ name: 'Adam',
+                products: ' Name: apple - price:  350 ; Name: orange - price:  455 ;',
+                totalPrice: 805,
+                discountPrice: 0,
+                totalMoney: 805 }
 
         );
     });

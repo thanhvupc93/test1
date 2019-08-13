@@ -1,36 +1,32 @@
 const _ = require('lodash');
 
-export const load = (data = '') => {
+export const load = (data = []) => {
     try {
-        if (data != null) {
-            //check format data
-            if (isString(data)) {
-                let result = [];
-                let arrData = data.split('\n');
-                    _.forEach(arrData, (value) => {
-                        if(value != ''){
-                            let arrObject = value.split(';');
-                            let objectPutArr = {};
-                            _.forEach(arrObject, (iObject) => {
-                                let object = iObject.split('=');
-                                //check format data object
-                                if (object.length > 1) {
-                                    if (object[0] != '' && object[1] != '') {
-                                        objectPutArr[object[0]] = object[1];
-                                    }
-                                }else throw 'error : format data object';
-                            });
-                            result.push(objectPutArr);
-                        }
-                    });
-                return result;
+        let result = '';
+        // for data
+        _.forEach(data, (value) => {
+            //check format data if input not equal Object return error
+            if (isObject(value)) {
+                data
+                // get key of object, get key and value to count character
+                let arrKey = Object.keys(value);
+                let characters;
+                _.forEach(arrKey, (ikey, index) => {
+                    // if end string data have character ;,
+                    // check put ;, if end object not add character ;
+                    arrKey.length - 1 > index ? characters = ';' : characters = '';
+                    result += `${ikey}=${value[ikey]}${characters}`;
+                });
+                // add character \n when add object
+                result += `\n`
             } else throw 'error : format data';
-        } else return [];
+        });
+        return result;
     } catch (error) {
         return error;
     }
 }
 
-function isString(value) {
-    return typeof value === 'string' || value instanceof String;
+function isObject(value) {
+    return value && typeof value === 'object' && value.constructor === Object;
 }

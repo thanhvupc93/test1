@@ -7,7 +7,6 @@ export const load = (data = []) => {
         _.forEach(data, (value) => {
             //check format data if input not equal Object return error
             if (isObject(value)) {
-                data
                 // get key of object, get key and value to count character
                 let arrKey = Object.keys(value);
                 let characters;
